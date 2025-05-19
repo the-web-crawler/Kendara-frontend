@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kendara - Building a World Where Everyone Thrives</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Lora:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link href="./logo.png" rel="icon" type="image/png">
+    <style>
+        /* --- Brand Colors --- */
+        :root {
+            --color-soft-green: #81c784;
+            /* Growth, Harmony */
+            --color-serene-blue: #90caf9;
+            /* Trust, Serenity */
+            --color-sunrise-yellow: #ffecb3;
+            /* Optimism, Warmth */
+            --color-rose-quartz: #f8bbd0;
+            /* Empathy, Compassion */
+            --color-warm-off-white: #fcfcfc;
+            /* Clean background */
+            --color-light-gray: #e0e0e0;
+            /* Subtle accents */
+            --color-text-dark: #333333;
+            /* For readability */
+            --color-text-light: #666666;
+            /* Secondary text */
+        }
+
+        /* --- General Body Styles --- */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-warm-off-white);
+            color: var(--color-text-dark);
+            overflow-x: hidden;
+            /* Prevent horizontal scroll */
+        }
+
+        /* --- Global Container --- */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* --- Header --- */
+        header {
+            background-color: var(--color-serene-blue);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Lora', serif;
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--color-warm-off-white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-symbol {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: var(--color-soft-green);
+            border-radius: 50%;
+            margin-right: 10px;
+            position: relative;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+        }
+
+        .logo-symbol::before {
+            /* Inner glow or core */
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 15px;
+            height: 15px;
+            background-color: var(--color-sunrise-yellow);
+            border-radius: 50%;
+        }
+
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: var(--color-warm-off-white);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--color-sunrise-yellow);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(135deg, var(--color-serene-blue) 0%, var(--color-soft-green) 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+            border-bottom-left-radius: 50% 20px;
+            /* Soft organic shape */
+            border-bottom-right-radius: 50% 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .hero h1 {
+            font-family: 'Lora', serif;
+            font-size: 3em;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+            opacity: 0.9;
+        }
+
+        .hero .cta-button {
+            display: inline-block;
+            background-color: var(--color-sunrise-yellow);
+            color: var(--color-text-dark);
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero .cta-button:hover {
+            background-color: var(--color-rose-quartz);
+            transform: translateY(-2px);
+        }
+
+        /* --- Abstract Background Shapes (for visual interest and 'layered' feel) --- */
+        .hero::before,
+        .hero::after {
+            content: '';
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            z-index: 0;
+            filter: blur(20px);
+        }
+
+        .hero::before {
+            width: 150px;
+            height: 150px;
+            top: 10%;
+            left: 5%;
+        }
+
+        .hero::after {
+            width: 200px;
+            height: 200px;
+            bottom: 5%;
+            right: 10%;
+        }
+
+
+        /* --- Section Styling --- */
+        section {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        section:nth-of-type(even) {
+            background-color: var(--color-light-gray);
+        }
+
+        section h2 {
+            font-family: 'Lora', serif;
+            font-size: 2.5em;
+            color: var(--color-serene-blue);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            /* To center the pseudo-element underline */
+        }
+
+        section h2::after {
+            /* Gentle underline/wave effect */
+            content: '';
+            display: block;
+            width: 60%;
+            height: 3px;
+            background-color: var(--color-soft-green);
+            margin: 10px auto 0;
+            border-radius: 5px;
+        }
+
+        section p {
+            font-size: 1.1em;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--color-text-light);
+        }
+
+        /* --- Features/Concepts Grid (Example) --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-item {
+            background-color: var(--color-warm-off-white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left;
+            border: 1px solid var(--color-light-gray);
+            /* Subtle border */
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .feature-item .icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--color-rose-quartz);
+            /* Accent color for icons */
+            border-radius: 50%;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em;
+            color: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-item h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5em;
+            color: var(--color-soft-green);
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .feature-item p {
+            font-size: 1em;
+            color: var(--color-text-dark);
+            text-align: left;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--color-serene-blue);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9em;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                margin-top: 15px;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <a href="#" class="logo">
+                <span class="logo-symbol"></span>
+                Kendara
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#concepts">Concepts</a></li>
+                    <li><a href="#mission">Our Mission</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Building a World Where Everyone Thrives</h1>
+                <p>Kendara applies cutting-edge Cognitive Utility Theory to foster personal growth and collective
+                    well-being.</p>
+                <a href="#about" class="cta-button">Discover Your Potential</a>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2>About Kendara</h2>
+                <p>Kendara is founded on the principles of Cognitive Utility Theory (CUT), a unique framework for
+                    understanding how intrinsic motivations drive human behavior. We believe that by understanding and
+                    nurturing our core drives, individuals can achieve a state of lasting well-being and contribute to a
+                    more harmonious world.</p>
+            </div>
+        </section>
+
+        <section id="concepts">
+            <div class="container">
+                <h2>Our Core Concepts</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="icon">✨</div>
+                        <h3>Intrinsic Drives</h3>
+                        <p>Explore the fundamental motivations that shape your decisions, from innate needs to complex
+                            aspirations. Understand the chemical basis of your inner landscape.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="icon">🌿</div>
+                        <h3>Unnoeia & Thriving</h3>
+                        <p>Learn to navigate feedback loops and achieve Unnoeia—a state of mental clarity and consistent
+                            drive satisfaction, empowering you to truly thrive.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="icon">🤝</div>
+                        <h3>Harmonious Connection</h3>
+                        <p>Discover how meeting personal needs naturally fosters empathy and enables contribution to
+                            collective well-being, aligning with a "Graves Level 6" perspective.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="icon">🧠</div>
+                        <h3>Cognitive Utility Theory</h3>
+                        <p>Dive into the interplay of System 1 (instinct) and System 2 (reason) and how this
+                            understanding unlocks profound personal and societal transformation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mission">
+            <div class="container">
+                <h2>Our Vision</h2>
+                <p>At Kendara, we envision a future where every individual is empowered to meet their intrinsic needs,
+                    leading to widespread personal flourishing. This foundation enables a compassionate approach to
+                    global well-being, fostering a truly harmonious and thriving world for all.</p>
+                <p style="margin-top: 20px; font-style: italic;">"From a CUT perspective, widespread well-being arises
+                    as individuals advance through their own feedback loops, naturally fostering societal benefit once
+                    personal drives are consistently fulfilled."</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Kendara. All rights reserved.</p>
+            <p>Embracing Intrinsic Drives for a Thriving World.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
